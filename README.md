@@ -1,5 +1,4 @@
 # him
-承知いたしました。`index.html`と`script.js`の内容を解析し、README.mdを作成します。
 
 ---
 
