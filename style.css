@@ -1,0 +1,101 @@
+/* style.css */
+/* 既存のスタイルはほぼ変更なし */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+main {
+    padding: 1rem 2rem;
+}
+.search-box {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 15px;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 150px;
+}
+.input-group label {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    color: #555;
+}
+.year-inputs { display: flex; align-items: center; gap: 5px; }
+#keyword-input, #location-input, #period-select { flex-grow: 1; min-width: 200px; }
+input[type="text"], input[type="number"], select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.button-group { flex-grow: 0; }
+button { padding: 0.6rem 1rem; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; white-space: nowrap; }
+button:hover { background-color: #0056b3; }
+button:disabled { background-color: #ccc; cursor: not-allowed; }
+#loading-indicator.hidden { display: none; }
+
+/* 地図と結果リスト */
+#content-container { display: flex; gap: 1rem; }
+#map { flex: 2; height: 60vh; border: 1px solid #ccc; border-radius: 4px; }
+#results-container { flex: 1; height: 60vh; background-color: #fff; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); overflow-y: auto; padding: 0 1rem; }
+#results-container h2 { position: sticky; top: 0; background: #fff; margin: 0 -1rem; padding: 1rem; border-bottom: 1px solid #eee; z-index: 10; }
+#results-list { list-style: none; padding: 0; margin-top: 1rem; }
+.result-item { padding: 0.75rem; border-bottom: 1px solid #eee; cursor: pointer; transition: background-color 0.2s; }
+.result-item:hover { background-color: #f0f8ff; }
+.result-item h3 { margin: 0 0 5px 0; font-size: 1rem; color: #007bff; }
+.result-item p { margin: 0; font-size: 0.85rem; color: #666; }
+
+/* ▼▼▼ ここから追加 ▼▼▼ */
+/* タイムラインコンテナ */
+#timeline-container {
+    margin-top: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+#timeline {
+    height: 25vh; /* タイムラインの高さ */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* vis.jsのアイテムのスタイルを上書き */
+.vis-item {
+    background-color: #d6eaff;
+    border-color: #9acaff;
+}
+.vis-item.vis-selected {
+    background-color: #ffc107;
+    border-color: #f5b000;
+}
+/* ▲▲▲ ここまで追加 ▲▲▲ */
+
+
+/* その他 */
+.highlight-marker-icon { filter: hue-rotate(120deg) brightness(1.5); transition: filter 0.2s; }
+.leaflet-popup-content { font-size: 14px; }
+.leaflet-popup-content h3 { margin-top: 0; margin-bottom: 5px; }
+
+@media (max-width: 768px) {
+    #content-container { flex-direction: column; }
+    #map, #results-container { height: 50vh; }
+}
